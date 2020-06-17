@@ -30,8 +30,8 @@ Desarrollar un modelo de vendedores que permita consultar:
 
 ## Vendedor influyente
 Agregar al modelo la capacidad de indicar si un vendedor _es influyente_ en una ciudad. Esto implica que el vendedor puede trabajar en dicha ciudad y, además, _es famoso_. Un vendedor es famoso dependiendo del modo de operar que use:
-- _inisistente_: los vendedores insistentes bastan con ser firmes para ser famosos.
-- _práctico_: los vendedores prácticos deben ser versátiles y tener alguna certificación con más de 10 puntos.
+- **inisistente**: los vendedores insistentes bastan con ser firmes para ser famosos.
+- **práctico**: los vendedores prácticos deben ser versátiles y tener alguna certificación con más de 10 puntos.
  
 <br>
 
