@@ -19,7 +19,7 @@ De cada vendedor, se tiene detalle de las **certificaciones** que posee.
 Cada certificación otorga una cantidad de _puntos_. Algunas certificaciones son sobre productos, otras no. 
 
 Desarrollar un modelo de vendedores que permita consultar:
-- dada una ciudad, si un vendedor _puede trabajar_ en esa ciudad. La condición depende del tipo de vendedor, como se indica a continuación
+- dada una ciudad, si un vendedor _puede trabajar_ en esa ciudad. Para ello se debe cumplir que tenga alguna certificación ó una condición depende del tipo de vendedor, como se indica a continuación
 	- _vendedor fijo_: debe ser la ciudad en la que vive.
 	- _viajante_: la ciudad debe estar en una provincia en la que está habilitado.
 	- _comercio corresponsal_: debe ser una ciudad en la que tiene sucursal.
@@ -29,15 +29,9 @@ Desarrollar un modelo de vendedores que permita consultar:
 <br>
 
 ## Vendedor influyente
-Agregar al modelo la capacidad de indicar si un vendedor _es influyente_. La condición depende del tipo de vendedor:
-- _vendedor fijo_: ningún vendedor fijo es influyente.
-- _viajante_: la población total sumando todas las provincias donde está habilitado, debe ser de 10 millones o superior.
-- _comercio corresponsal_: debe tener sucursales en al menos 5 ciudades, o bien en al menos 3 provincias considerando la provincia de cada ciudad donde tiene sucursal.
-
-P.ej. un comercio corresponsal que tenga sucursales en
-- Chivilcoy, Bragado, Lobos, Pergamino y Zárate: es influyente, se cumple la condición de 5 ciudades.
-- Rosario (Santa Fe), Rafaela (Santa Fe), San Francisco (Córdoba), y Diamante (Entre Ríos): es infuyente, se cumple la condición de 3 provincias.
-- Rosario, Rafaela, Amstrong (Santa Fe) y Diamante: no es influyente, son 4 ciudades y 2 provincias, no cumple ninguna de las condiciones.
+Agregar al modelo la capacidad de indicar si un vendedor _es influyente_ en una ciudad. Esto implica que el vendedor puede trabajar en dicha ciudad y, además, _es famoso_. Un vendedor es famoso dependiendo del modo de operar que use:
+- _inisistente_: los vendedores insistentes bastan con ser firmes para ser famosos.
+- _práctico_: los vendedores prácticos deben ser versátiles y tener alguna certificación con más de 10 puntos.
  
 <br>
 
@@ -49,7 +43,7 @@ Debe poder _agregarse_ un vendedor a un centro. Si el vendedor ya está registra
 Debe poder consultarse, para un centro de distribución:
 - el _vendedor estrella_, que es el que tiene mayor puntaje total por certificaciones.
 - si _puede cubrir_, o no, una ciudad dada. La condición es que al menos uno de los vendedores registrados pueda trabajar en esa ciudad.
-- la colección de _vendedores genéricos_ registrados. Un vendedor se considera genérico si tiene al menos una certificación que no es de productos.
+- la colección de _vendedores genéricos_ registrados. Un vendedor se considera genérico si no es influyente.
 - si _es robusto_, la condición es que al menos 3 de sus vendedores registrados sea firme.
 
 <br>
@@ -65,7 +59,7 @@ Agregar al modelo la _afinidad_ que un vendedor puede tener por un centro de dis
 Para un vendedor, se dice que _tiene afinidad_ con un centro de distribución, si el vendedor puede trabajar en la ciudad en la que está el centro. 
 Para los comercios correspondientes se agrega una condición adicional: que haya al menos una ciudad en la que el comercio tiene sucursales, y que el centro no puede cubrir.
 
-Para un vendedor, se dice que un vendedor es _candidato_ si: es versátil, y tiene afinidad por el centro.
+Además, un vendedor es _candidato_ para un centro si: es versátil, y tiene afinidad por el centro.
 
 <br>
 
